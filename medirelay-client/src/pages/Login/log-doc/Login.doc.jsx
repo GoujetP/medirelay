@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import background from '../../../assets/img/background-home.png';
 import docteurs from '../../../assets/img/docteurs.png';
+import { useNavigate } from 'react-router-dom';
 import '../Login.css';
 const LoginDocteur = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
+    const navigate = useNavigate();
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
     };
@@ -17,6 +18,13 @@ const LoginDocteur = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Ajoutez ici la logique de connexion avec l'email et le mot de passe
+        const expirationDate = new Date();
+        expirationDate.setTime(expirationDate.getTime() + (60 * 60 * 1000)); // 1 hour
+        const token = 'eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6InJvb3QiLCJlbWFpbCI6InBpZXJyZS5nb3VqZXRAZWNvbGVzLWVwc2kubmV0In0.UNz83QQ-0AYLxhSBPziQzEMoDloxuDTuq-8XFfbsW8Y'
+        document.cookie = `jwtTokenDoc=${token}; expires=${expirationDate.toUTCString()}; path=/`;
+
+        const doctorId = '12345';
+        navigate(`/dashboard-doc/${doctorId}`);
     };
 
     return (

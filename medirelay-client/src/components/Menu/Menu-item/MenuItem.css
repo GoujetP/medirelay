@@ -1,0 +1,35 @@
+.container-menu-item {
+    display: flex;
+    align-items: center;
+    height: 55px;
+    max-width: 250px;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.container-menu-item:hover {
+    background-color: #F5F5F5;
+}
+
+.menu-item-icon {
+    margin-right: 10px;
+    font-size: 30px;
+    color: #7E7E7E;
+}
+
+.container-menu-item.active {
+    background-color: #3B9AB8;
+    /* Couleur de fond active */
+}
+
+.menu-item-icon.active {
+    color: white;
+    /* Couleur de l'icône active */
+}
+
+.active-text {
+    color: white;
+    /* Couleur de texte active */
+}
