@@ -4,7 +4,7 @@ import LoginDocteur from '../../pages/Login/log-doc/Login.doc';
 import LoginPatient from '../../pages/Login/log-patient/Login.patient';
 import LoginPharma from '../../pages/Login/log-pharma/Login.pharma';
 import DashboardDoc from '../../pages/DashboardDoc/DashboardDoc';
-
+import DashboardPatient from '../../pages/DashboardPatient/DashboardPatient';
 const Navigator = () => {
     return (
         <Routes>
@@ -13,6 +13,7 @@ const Navigator = () => {
             <Route path="/login-patient" element={<LoginPatient />} />
             <Route path="/login-pharma" element={<LoginPharma />} />
             <Route path="/dashboard-doc/:doctorId" element={<DashboardDoc />} />
+            <Route path="/dashboard-patient/:patientId" element={<DashboardPatient />} />
         </Routes>
     );
 };
