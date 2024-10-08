@@ -1,0 +1,64 @@
+.background-home {
+    position: absolute;
+    width: 33vw;
+    height: 100vh;
+    top: 0;
+}
+
+.docteurs {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 33vw;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.container-button-login {
+    display: flex;
+    margin-left: 33.3%;
+    width: 66.6%;
+    flex-direction: column;
+    margin-top: 15vh;
+    align-items: center;
+    height: 50vh;
+    justify-content: center;
+}
+
+.container-button-login h1 {
+    margin: 0;
+    font-size: 3.5em;
+}
+
+.navigation-buttons {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.nav-button {
+    width: 50%;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #3B9AB8;
+    color: white;
+    font-size: 19px;
+    font-weight: 400;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: #2C7A8D;
+}
