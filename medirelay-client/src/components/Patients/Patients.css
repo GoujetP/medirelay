@@ -1,41 +1,24 @@
 .scrollable-list {
     max-height: 81vh;
-    /* Définissez la hauteur maximale souhaitée */
     overflow-y: auto;
     overflow-x: hidden;
     width: 100%;
-    /* Activez le défilement vertical */
 }
 
 .scrollable-list::-webkit-scrollbar {
     width: 12px;
-    /* Largeur de la barre de défilement */
 }
-
-
-/* Style de la piste de la barre de défilement */
 
 .scrollable-list::-webkit-scrollbar-track {
     background: #f1f1f1;
-    /* Couleur de la piste */
     border-radius: 10px;
-    /* Arrondir les coins de la piste */
 }
-
-
-/* Style du pouce de la barre de défilement */
 
 .scrollable-list::-webkit-scrollbar-thumb {
     background: #888;
-    /* Couleur du pouce */
     border-radius: 10px;
-    /* Arrondir les coins du pouce */
 }
-
-
-/* Style du pouce de la barre de défilement lors du survol */
 
 .scrollable-list::-webkit-scrollbar-thumb:hover {
     background: #555;
-    /* Couleur du pouce lors du survol */
 }

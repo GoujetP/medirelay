@@ -1,0 +1,64 @@
+.container-form-ordo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-ordo {
+    width: 90em;
+}
+
+.container-form-ordo img {
+    width: 32em;
+}
+
+.select-ordo {
+    display: flex;
+    flex-direction: column;
+}
+
+.select-ordo select {
+    margin-bottom: 30px;
+    width: 30em;
+    height: 3em;
+    font-size: 17px;
+}
+
+.select-ordo label {
+    margin-bottom: 1em;
+}
+
+.image-container {
+    position: relative;
+}
+
+.ordonnance-image {
+    width: 32em;
+}
+
+.text-overlay {
+    position: absolute;
+    top: 100px;
+    /* Ajustez la position selon vos besoins */
+    left: 10px;
+    /* Ajustez la position selon vos besoins */
+    color: black;
+    /* Couleur du texte */
+    background-color: rgba(255, 255, 255, 0.7);
+    /* Fond semi-transparent pour améliorer la lisibilité */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.text-overlay-2 {
+    position: absolute;
+    top: 200px;
+    /* Ajustez la position selon vos besoins */
+    left: 10px;
+    /* Ajustez la position selon vos besoins */
+    color: black;
+    /* Couleur du texte */
+    background-color: rgba(255, 255, 255, 0.7);
+    /* Fond semi-transparent pour améliorer la lisibilité */
+    padding: 10px;
+    border-radius: 5px;
+}
