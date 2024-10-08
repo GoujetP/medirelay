@@ -20,7 +20,7 @@ const Menu = ({tabMenu, onMenuItemClick}) => {
                         key={index}
                         icon={menuItem.icon}
                         libelle={menuItem.libelle}
-                        onClick={() => { handleMenuItemClick(menuItem.libelle,index);
+                        onClick={() => { handleMenuItemClick(index);
                             onMenuItemClick(menuItem.component); }}
                         isActive={activeItem === index}
                     />

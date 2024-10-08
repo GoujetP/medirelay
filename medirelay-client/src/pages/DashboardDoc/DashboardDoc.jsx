@@ -28,7 +28,7 @@ const DashboardDoc = () => {
     const renderComponent = () => {
         switch (selectedComponent) {
             case 'Patients':
-                return <Patients />;
+                return <Patients doctorId={doctorId} />;
             case 'CreatePrescription':
                 return <CreatePrescription />;
             default:
