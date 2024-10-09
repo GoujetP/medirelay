@@ -6,6 +6,7 @@ import LoginPharma from '../../pages/Login/log-pharma/Login.pharma';
 import DashboardDoc from '../../pages/DashboardDoc/DashboardDoc';
 import DashboardPatient from '../../pages/DashboardPatient/DashboardPatient';
 import OrdoDetail from '../OrdoDetail/OrdoDetail';
+import DashboardPharma from '../../pages/DashboardPharma/DashboardPharma';
 const Navigator = () => {
     return (
         <Routes>
@@ -15,6 +16,7 @@ const Navigator = () => {
             <Route path="/login-pharma" element={<LoginPharma />} />
             <Route path="/dashboard-doc/:doctorId" element={<DashboardDoc />} />
             <Route path="/dashboard-patient/:patientId" element={<DashboardPatient />} />
+            <Route path="/dashboard-pharma/:pharmaId" element={<DashboardPharma />} />
             <Route path="/ordo-detail/:idPatient/:idOrdo" element={<OrdoDetail />} />
         </Routes>
     );

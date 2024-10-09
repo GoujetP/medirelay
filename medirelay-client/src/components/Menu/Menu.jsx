@@ -30,7 +30,7 @@ const Menu = ({tabMenu, onMenuItemClick}) => {
                         isActive={activeItem === index}
                     />
                 ))}
-                <MenuItem icon={<IoIosLogOut />} libelle='Déconnexion' onClick={() => { handleMenuItemClick(null); onMenuItemClick(null); handleCookieDeletion();navigate("/");}} isActive={false} />
+                <MenuItem icon={<IoIosLogOut />} libelle='Déconnexion' onClick={() => { handleMenuItemClick(null); handleCookieDeletion();navigate("/");}} isActive={false} />
             </div>
             <div className='separator'></div>
         </div>

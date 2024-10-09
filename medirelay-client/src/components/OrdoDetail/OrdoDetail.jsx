@@ -117,8 +117,8 @@ const OrdoDetail = () => {
                         </Marker>
                     )}
                 </MapContainer>
-                <button className='button-form-login' onClick={()=>{navigate("/dashboard-patient/" + idPatient)}} >Commander vos médicaments</button>
-                <button className='button-form-login' onClick={()=>{navigate("/dashboard-patient/" + idPatient)}}>Renouveler votre ordonnance</button>
+                <button className='button-form-login' onClick={()=>{navigate("/dashboard-patient/" + idPatient + "?confirmation=true")}} >Commander vos médicaments</button>
+                <button className='button-form-login' onClick={()=>{navigate("/dashboard-patient/" + idPatient + "?confirmation=true")}}>Renouveler votre ordonnance</button>
             </div>
         </div>
     );
