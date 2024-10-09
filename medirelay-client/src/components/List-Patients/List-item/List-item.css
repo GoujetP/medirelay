@@ -8,9 +8,34 @@
     padding: 10px;
     border-radius: 15px;
     border: 1px solid #E0E0E0;
+    transition: background-color 0.3s ease;
 }
 
+.list-item:hover {
+    background-color: #ecebeb;
+    cursor: pointer;
+}
 .list-item p {
+    font-size: 15px;
+    padding: 5px;
+    background-color: #E0E0E0;
+    color: #3B9AB8;
+    border-radius: 7px;
+}
+
+.list-item-medoc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40em;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid #E0E0E0;
+}
+
+.list-item-medoc p {
     font-size: 15px;
     padding: 5px;
     background-color: #E0E0E0;

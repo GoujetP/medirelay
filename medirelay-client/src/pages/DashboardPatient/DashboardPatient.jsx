@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import { useParams , useLocation} from 'react-router-dom';
+import { useParams, useLocation } from 'react-router-dom';
 import Menu from '../../components/Menu/Menu';
 import { FaFilePrescription } from 'react-icons/fa';
 import './DashboardPatient.css';
-import Patients from '../../components/Patients/Patients';
 import OrdoPatients from '../../components/OrdoPatients/OrdoPatients';
-const DashboardDoc = () => {
-    const { doctorId } = useParams();
+
+const DashboardPatient = () => {
+    const { patientId } = useParams();
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const patient = queryParams.get('patient');
-    let patientBoolean= patient ? true : false;
-    const [selectedComponent, setSelectedComponent] = useState('Patients');
+    let patientBoolean = patient ? true : false;
+    const [selectedComponent, setSelectedComponent] = useState('OrdoPatients');
     const [isModalOpen, setIsModalOpen] = useState(patientBoolean);
 
     const tabMenu = [
@@ -27,16 +27,7 @@ const DashboardDoc = () => {
     };
 
     const renderComponent = () => {
-        switch (selectedComponent) {
-            case 'OrdoPatients':
-                return <OrdoPatients doctorId={doctorId} />;
-            default:
-                return null;
-        }
-    };
-
-    const closeModal = () => {
-        setIsModalOpen(false);
+            return <OrdoPatients idPatient={patientId} />;
     };
 
     return (
@@ -45,9 +36,8 @@ const DashboardDoc = () => {
             <div className="dashboard-content">
                 {renderComponent()}
             </div>
-            
         </div>
     );
 };
 
-export default DashboardDoc;
+export default DashboardPatient;

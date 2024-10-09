@@ -17,7 +17,6 @@ const LoginDocteur = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Ajoutez ici la logique de connexion avec l'email et le mot de passe
         const expirationDate = new Date();
         expirationDate.setTime(expirationDate.getTime() + (60 * 60 * 1000)); // 1 hour
         const token = 'eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6InJvb3QiLCJlbWFpbCI6InBpZXJyZS5nb3VqZXRAZWNvbGVzLWVwc2kubmV0In0.UNz83QQ-0AYLxhSBPziQzEMoDloxuDTuq-8XFfbsW8Y'
