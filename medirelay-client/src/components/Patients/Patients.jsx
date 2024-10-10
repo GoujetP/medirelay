@@ -13,7 +13,7 @@ const Patients = (doctorId) => {
                 if (!token) {
                     throw new Error('Token not found');
                 }
-                fetch(`http://localhost/medirelay-api/public/index.php/patients?role=Doctor&id=${parseInt(doctorId.doctorId)}`, {
+                fetch(`http://192.168.137.2/medirelay-api/public/index.php/patients?role=Doctor&id=${parseInt(doctorId.doctorId)}`, {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`

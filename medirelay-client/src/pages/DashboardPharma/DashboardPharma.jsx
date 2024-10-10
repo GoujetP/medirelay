@@ -54,7 +54,7 @@ const DashboardPharma = () => {
                 if (!token) {
                     throw new Error('Token not found');
                 }
-                fetch(`http://localhost/medirelay-api/public/index.php/orders?role=Pharmacy&id=${pharmaId.pharmaId}`, {
+                fetch(`http://192.168.137.2/medirelay-api/public/index.php/orders?role=Pharmacy&id=${pharmaId.pharmaId}`, {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`

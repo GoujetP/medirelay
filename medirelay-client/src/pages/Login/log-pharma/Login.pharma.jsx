@@ -17,7 +17,7 @@ const LoginDocteur = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch(`http://localhost/medirelay-api/public/index.php/login?username=${email}&password=${password}&role=Pharmacy`, {
+        fetch(`http://192.168.137.2/medirelay-api/public/index.php/login?username=${email}&password=${password}&role=Pharmacy`, {
             method: 'GET',
         })
         .then(response => response.json())

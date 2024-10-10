@@ -21,7 +21,7 @@ const OrdoDetail = () => {
                 if (!token) {
                     throw new Error('Token not found');
                 }
-                fetch(`http://localhost/medirelay-api/public/index.php/medicines?role=All&id=${idOrdo}`, {
+                fetch(`http://192.168.137.2/medirelay-api/public/index.php/medicines?role=All&id=${idOrdo}`, {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`
@@ -38,7 +38,7 @@ const OrdoDetail = () => {
                 if (!token) {
                     throw new Error('Token not found');
                 }
-                fetch(`http://localhost/medirelay-api/public/index.php/pharmacy`, {
+                fetch(`http://192.168.137.2/medirelay-api/public/index.php/pharmacy`, {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`

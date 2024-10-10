@@ -1,8 +1,8 @@
 Login et recup token
-http://localhost:8080/medirelay/login?username=***&password=***
+http://192.168.137.2:8080/medirelay/login?username=***&password=***
 
 Récupérer les infos
-http://localhost:8080/medirelay/patients
+http://192.168.137.2:8080/medirelay/patients
 Headers :
 Authorization => "Bearer : *****"
 
