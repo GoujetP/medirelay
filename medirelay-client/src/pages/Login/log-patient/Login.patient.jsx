@@ -17,13 +17,35 @@ const LoginDocteur = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const expirationDate = new Date();
-        expirationDate.setTime(expirationDate.getTime() + (60 * 60 * 1000));
-        const token = 'eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6InJvb3QiLCJlbWFpbCI6InBpZXJyZS5nb3VqZXRAZWNvbGVzLWVwc2kubmV0In0.UNz83QQ-0AYLxhSBPziQzEMoDloxuDTuq-8XFfbsW8Y'
-        document.cookie = `jwtTokenPatient=${token}; expires=${expirationDate.toUTCString()}; path=/`;
-
-        const patientId = '12345';
-        navigate(`/dashboard-patient/${patientId}`);
+        fetch(`http://localhost/medirelay-api/public/index.php/login?username=${email}&password=${password}&role=Patient`, {
+            method: 'GET',
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text(); // Change to text to handle empty responses
+        })
+        .then(text => {
+            if (!text) {
+                throw new Error('Empty response');
+            }
+            return JSON.parse(text); // Parse the text to JSON
+        })
+        .then(data => {
+            if (data.token) {
+                const expirationDate = new Date();
+                expirationDate.setTime(expirationDate.getTime() + (60 * 60 * 1000));
+                document.cookie = `jwtTokenPatient=${data.token}; expires=${expirationDate.toUTCString()}; path=/`;
+                const patientId = data.id;
+                navigate(`/dashboard-patient/${patientId}`);
+            } else {
+                console.error('Login failed');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
     };
 
     return (

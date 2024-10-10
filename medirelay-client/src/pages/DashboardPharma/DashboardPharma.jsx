@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Menu from '../../components/Menu/Menu';
 import { IoMdReorder } from "react-icons/io";
@@ -46,14 +46,40 @@ const DashboardPharma = () => {
             patient: { nom: 'Fournier', prenom: 'Paul' }
         }
     ];
+    const [listOrders, setListOrders] = useState([]);
+    useEffect(() => {
+        const fetchOrders = () => {
+            try {
+                const token = document.cookie.split('; ').find(row => row.startsWith('jwtTokenPharma=')).split('=')[1];
+                if (!token) {
+                    throw new Error('Token not found');
+                }
+                fetch(`http://localhost/medirelay-api/public/index.php/orders?role=Pharmacy&id=${pharmaId.pharmaId}`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                }).then(response => response.json()).then(data => setListOrders(data));
+            } catch (error) {
+                console.error('Error fetching patients:', error);
+            }
+        };
+
+        if (pharmaId) {
+            fetchOrders();
+        } else {
+            console.error('doctorId is not defined');
+        }
+    }, [pharmaId]);
 
     const handleMenuItemClick = (component) => {
         setSelectedComponent(component);
     };
 
     const renderComponent = () => {
-            return <ListOrder list={data} />;
+            return <ListOrder list={listOrders} />;
     };
+    console.log(listOrders);
     return (
         <div className='container-dashboard'>
             <Menu tabMenu={tabMenu} />
@@ -61,7 +87,7 @@ const DashboardPharma = () => {
                 <h3>Bonjour, Pharmacie</h3>
                 <h1>Les commandes en cours</h1>
                 <div className="scrollable-list">
-                    <ListOrder list={data} onMenuItemClick={handleMenuItemClick} />
+                    <ListOrder list={listOrders} onMenuItemClick={handleMenuItemClick} />
                 </div>
             </div>
         </div>

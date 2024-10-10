@@ -14,7 +14,7 @@ const DashboardPatient = () => {
     let patientBoolean = patient ? true : false;
     const [selectedComponent, setSelectedComponent] = useState('OrdoPatients');
     const [isModalOpen, setIsModalOpen] = useState(confirmation);
-
+    
     const tabMenu = [
         {
             icon: <FaFilePrescription />,

@@ -9,10 +9,10 @@ import Modal from './Modal/Modal';
 
 const DashboardDoc = () => {
     const { doctorId } = useParams();
+    console.log(doctorId);
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const patient = queryParams.get('patient');
-    console.log(doctorId, patient);
     let patientBoolean= patient ? true : false;
     const [selectedComponent, setSelectedComponent] = useState('Patients');
     const [isModalOpen, setIsModalOpen] = useState(patientBoolean);

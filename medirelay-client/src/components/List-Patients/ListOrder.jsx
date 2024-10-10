@@ -5,7 +5,7 @@ const ListOrder = ({list}) => {
     return (
         <div>
             {list.map((item, index) => (
-                <ListItem patient={item.patient} docteur={item.docteur} ordo={item.ordo} key={index} />
+                <ListItem item={item} key={index} />
             ))}
         </div>
     );

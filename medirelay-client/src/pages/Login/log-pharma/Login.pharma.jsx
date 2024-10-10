@@ -17,13 +17,24 @@ const LoginDocteur = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const expirationDate = new Date();
-        expirationDate.setTime(expirationDate.getTime() + (60 * 60 * 1000));
-        const token = 'eyJhbGciOiJIUzI1NiJ9.eyJwYXNzd29yZCI6InJvb3QiLCJlbWFpbCI6InBpZXJyZS5nb3VqZXRAZWNvbGVzLWVwc2kubmV0In0.UNz83QQ-0AYLxhSBPziQzEMoDloxuDTuq-8XFfbsW8Y'
-        document.cookie = `jwtTokenPharma=${token}; expires=${expirationDate.toUTCString()}; path=/`;
-
-        const pharmaId = '12345';
-        navigate(`/dashboard-pharma/${pharmaId}`);
+        fetch(`http://localhost/medirelay-api/public/index.php/login?username=${email}&password=${password}&role=Pharmacy`, {
+            method: 'GET',
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.token) {
+                const expirationDate = new Date();
+                expirationDate.setTime(expirationDate.getTime() + (60 * 60 * 1000));
+                document.cookie = `jwtTokenPharma=${data.token}; expires=${expirationDate.toUTCString()}; path=/`;
+                const pharmaId = data.id;
+                navigate(`/dashboard-pharma/${pharmaId}`);
+            } else {
+                console.error('Login failed');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
     };
 
     return (
